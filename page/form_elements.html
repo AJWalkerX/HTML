@@ -4,6 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Bileşenleri</title>
+    <style>
+      label {
+        display: inline-block;
+        width: 200px;
+      }
+      input {
+        display: inline-block;
+        width: 250px;
+        height: 22px;
+      }
+      div {
+        margin-bottom: 5px;
+      }
+    </style>
   </head>
   <body>
     <div id="header" style="text-align: center; color: maroon">
@@ -25,6 +39,34 @@
       <div>
         <label for="password">Password: </label>
         <input type="password" name="password" id="password" /> <br />
+      </div>
+      <div>
+        <br />
+        <label for="" style="font-weight: bolder">İlgi alanlarınız</label><br />
+        <input type="checkbox" /><label for="">yüzme</label>
+        <input type="checkbox" /><label for="">Kitap okumak</label>
+        <input type="checkbox" /><label for="">Yazılım</label>
+        <input type="checkbox" /><label for="">Sinema</label>
+      </div>
+      <div>
+        <br />
+        <label for="" style="font-weight: bolder"
+          >Hangi yazılım dillerini seviyorsun?</label
+        ><br />
+        <input type="radio" name="yd" id="yd" /><label for="">java</label>
+        <input type="radio" name="yd" id="yd" /><label for="">C#</label>
+        <input type="radio" name="yd" id="yd" /><label for="">Go</label>
+        <input type="radio" name="yd" id="yd" /><label for="">PHP</label>
+      </div>
+      <div>
+        <br />
+        <label style="font-weight: bolder">Hangi ilde yaşıyorsun?</label><br />
+        <select name="" id="">
+          <option value="">Seçiniz</option>
+          <option value="01">Adana</option>
+          <option value="06">Ankara</option>
+          <option value="34">İstanbul</option>
+        </select>
       </div>
     </div>
   </body>
