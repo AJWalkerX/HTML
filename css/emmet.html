@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- div>div ile iç içe div açabilirsin -->
+    <div>
+      <div></div>
+    </div>
+    <!-- ornek div>div>label -->
+    <div>
+      <div>
+        <label></label>
+      </div>
+    </div>
+    <!-- ^ bir üst bileşene çıkar -->
+    <!-- örnek div>div>label^div>input:text -->
+    <div>
+      <div><label for=""></label></div>
+      <div><input type="text" name="" id="" /></div>
+    </div>
+
+    <!-- bir div içerisine birden fazla tag ekleme + işareti ile olur-->
+    <!-- örnek : div>label+input:text+button:submit -->
+    <div>
+      <label for=""></label>
+      <input type="text" name="" id="" />
+      <button type="submit"></button>
+    </div>
+    <!-- içerisine yazı girebilmek {} -->
+    <!-- örnek div>label{adını gir lo}-->
+    <div><label for="">adını gir lo</label></div>
+
+    <!-- Liste örneği  * kullanımı aynı bileşenden ekler
+     $ işareti ise 1 den başlayıp eklenen eleman kadar sayım yapar-->
+    <!--örnek : ul>li{sıra$}*5  -->
+    <ul>
+      <li>sıra1</li>
+      <li>sıra2</li>
+      <li>sıra3</li>
+      <li>sıra4</li>
+      <li>sıra5</li>
+    </ul>
+    <!-- . bir elemana class eklemek için kullanılır. -->
+    <!-- div.box -->
+    <div class="box"></div>
+    <!-- # bir elemana id eklemek için kullanılır -->
+    <!-- örnek : div#box -->
+    <div id="box"></div>
+    <!-- () sıra karışıklığını önlemek için kullanılır -->
+    <!-- table>thead>tr>th{baslik$}*2^^tbody>(tr>td{data$}*2)*50 paranteze dikkat  -->
+    <table>
+      <thead>
+        <tr>
+          <th>baslik1</th>
+          <th>baslik2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>data1</td>
+          <td>data2</td>
+        </tr>
+        <tr>
+          <td>data1</td>
+          <td>data2</td>
+        </tr>
+        <tr>
+          <td>data1</td>
+          <td>data2</td>
+        </tr>
+        <tr>
+          <td>data1</td>
+          <td>data2</td>
+        </tr>
+        <tr>
+          <td>data1</td>
+          <td>data2</td>
+        </tr>
+        <tr>
+          <td>data1</td>
+          <td>data2</td>
+        </tr>
+        <tr>
+          <td>data1</td>
+          <td>data2</td>
+        </tr>
+        <tr>
+          <td>data1</td>
+          <td>data2</td>
+        </tr>
+        <tr>
+          <td>data1</td>
+          <td>data2</td>
+        </tr>
+        <tr>
+          <td>data1</td>
+          <td>data2</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table css</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid brown;
+      }
+      th {
+        padding: 5px;
+        background-color: coral;
+        color: antiquewhite;
+      }
+      tr:nth-child(even) {
+        background-color: lightgrey;
+      }
+      tr:hover {
+        background-color: rebeccapurple;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>ad</th>
+          <th>telefon</th>
+          <th>email</th>
+          <th>yaş</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>alex</td>
+          <td>666</td>
+          <td>alex@hotmail.com</td>
+          <td>25</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>Cansu</td>
+          <td>333</td>
+          <td>cansu@hotmail.com</td>
+          <td>30</td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>Kerim</td>
+          <td>444</td>
+          <td>kerim_can@hotmail.com</td>
+          <td>31</td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>Leyla</td>
+          <td>111</td>
+          <td>Lale_leyla@hotmail.com</td>
+          <td>25</td>
+        </tr>
+        <tr>
+          <td>005</td>
+          <td>Şahmaran</td>
+          <td>543</td>
+          <td>kobra@hotmail.com</td>
+          <td>999</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
