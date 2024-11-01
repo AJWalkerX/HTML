@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex örnek 3</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: row;
+        border: 2px solid red;
+        min-height: 90vh;
+      }
+      .row {
+        display: flex;
+        border: 1px solid green;
+        min-width: 20vw;
+        margin: 5px;
+        flex-direction: column;
+      }
+      .col-4 {
+        flex: 4;
+      }
+      .col-8 {
+        flex: 8;
+      }
+      .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .box {
+        display: flex;
+        height: 200px;
+        border: 1px dotted gray;
+        border-radius: 10px;
+        margin: 5px;
+        align-items: center;
+      }
+      .box-header {
+        height: 150px;
+        border: 1px dotted gray;
+        border-radius: 10px;
+        width: 100%;
+        margin: 5px;
+        text-align: center;
+        align-content: center;
+      }
+      .box-content {
+        height: 150px;
+        width: 100%;
+        margin: 5px;
+      }
+      .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px dotted gray;
+        background-color: red;
+        margin: 5px;
+      }
+      .center {
+        justify-content: center;
+      }
+      .end {
+        justify-content: flex-end;
+      }
+      label {
+        color: blueviolet;
+        font-size: xx-large;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row col-4"></div>
+      <div class="row col-8">
+        <div class="box-container">
+          <div class="box-header">
+            <label>flex direction</label>
+          </div>
+          <div class="box-content">
+            <div class="box">
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="box center">
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="box end">
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
