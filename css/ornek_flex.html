@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satis Formu</title>
+    <style>
+      /* .container {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid red;
+        min-height: 400px;
+      }
+      .header {
+        border: 1px solid gray;
+      }
+      .main-item {
+        min-height: 100px;
+        display: flex;
+        margin: 10px;
+      }
+      .sub-item {
+        align-content: center;
+        border: 1px solid gray;
+        min-height: 200px;
+        min-width: 80px;
+        margin: 5px;
+      }
+      .content {
+        min-width: 88%;
+      } */
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        min-height: 20vh;
+        margin: 5px;
+        flex: 1;
+      }
+      .column {
+        border: 1px solid blue;
+        min-height: 90px;
+        margin: 10px;
+        border-radius: 10px;
+      }
+      .col-1 {
+        flex: 1;
+      }
+      .col-2 {
+        flex: 2;
+      }
+      .col-10 {
+        flex: 10;
+      }
+      .h-5 {
+        min-height: 80vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="column col-1"></div>
+      </div>
+      <div class="row">
+        <div class="column col-2 h-5"></div>
+        <div class="column col-10 h-5"></div>
+      </div>
+    </div>
+
+    <!-- <div class="container">
+      <div class="main-item header"></div>
+      <div class="main-item">
+        <div class="sub-item"></div>
+        <div class="sub-item content"></div>
+      </div>
+    </div> -->
+  </body>
+</html>
