@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var urun = {
+        id: 1,
+        ad: "elma",
+        fiyat: 10,
+        stok: 100,
+      };
+      console.log(urun);
+
+      let musteriListesi = [
+        {
+          id: 1,
+          ad: "ali",
+          iletisim: {
+            ad: "ev adresi",
+            tel: "5555555555",
+            adres: "ankara",
+          },
+        },
+        { id: 2, ad: "veli" },
+        { id: 3, ad: "hasan" },
+      ];
+
+      console.log(musteriListesi[0].iletisim.ad);
+      console.log(musteriListesi[1].ad);
+      // soru işareti komassan hata verir guzum. Çünkü yok.
+      // console.log(musteriListesi[1].iletisim.ad);
+      console.log(musteriListesi[1].iletisim?.ad);
+    </script>
+  </body>
+</html>

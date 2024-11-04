@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            ürün objesi : id, ad, fiyat, stok, kategori
+            kategori objesi : id, ad, parentId;
+        */
+      let urun = {
+        id: 1,
+        ad: "elma",
+        fiyat: 10,
+        stok: 100,
+        kategori: {
+          id: 1,
+          ad: "elma",
+          parentId: 0,
+        },
+      };
+      console.log(urun);
+      let result = {
+        code: 200,
+        size: 10,
+        page: 2,
+        message: "ok",
+        data: [
+          {
+            id: 1,
+            ad: "elma",
+            url: "Https://",
+            resmi: "elma.jpg",
+          },
+          {
+            id: 2,
+            ad: "armut",
+            url: "Https://",
+            resmi: "armut.jpg",
+          },
+          {
+            id: 3,
+            ad: "karpuz",
+            url: "Https://",
+            resmi: "karpuz.jpg",
+          },
+        ],
+      };
+      console.log(result);
+    </script>
+  </body>
+</html>
