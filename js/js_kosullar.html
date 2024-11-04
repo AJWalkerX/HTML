@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <label for="ad"> Adınızı giriniz</label>
+      </div>
+      <div>
+        <input type="text" name="ad" id="ad" />
+      </div>
+      <div>
+        <button type="button" onclick="test()">Test et</button>
+      </div>
+    </div>
+    <script>
+      /*
+        if (kosul) {
+            kod blokları
+        } else if (kosul) {
+            kod blokları
+        } else {
+            kod blokları
+        }
+        switch (degisken) {
+            case deger:
+                kod blokları
+                break;
+            case deger:
+                kod blokları
+                break;
+            default:
+                kod blokları
+                break;
+        }
+        */
+      function test() {
+        let ad = document.getElementById("ad").value;
+        if (ad.length <= 3 || ad.length > 64) {
+          alert("Adınız 4 ile 64 karakter arasında olmalıdır.");
+        } else {
+          alert("Merhaba " + ad);
+        }
+      }
+    </script>
+  </body>
+</html>

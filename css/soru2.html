@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ana Sayfa</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .container {
+        display: flex;
+        border: 2px solid red;
+        flex-direction: column;
+        min-height: 90vh;
+      }
+      .header {
+        align-content: center;
+        margin: 10px;
+        text-align: center;
+        border: 1px solid gray;
+        border-radius: 4px;
+        flex: 1;
+        height: 50px;
+      }
+      .body {
+        margin: 10px;
+        text-align: center;
+        border-radius: 4px;
+        height: 50px;
+        flex: 11;
+        display: flex;
+        justify-content: space-between;
+      }
+      .nav {
+        border: 1px solid gray;
+        border-radius: 4px;
+        flex: 2;
+        margin-right: 8px;
+      }
+      .main {
+        border-radius: 4px;
+        flex: 10;
+        display: flex;
+        flex-direction: column;
+      }
+      .content {
+        border: 1px solid gray;
+        border-radius: 4px;
+        flex: 9;
+        margin-bottom: 10px;
+      }
+      .footer {
+        border: 1px solid gray;
+        border-radius: 4px;
+        flex: 1;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      li a {
+        background-color: rgb(24, 196, 138);
+        flex: 1;
+        display: block;
+        color: rgb(247, 244, 240);
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      li a:hover {
+        background-color: #111;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><header>This is a header</header></div>
+      <div class="body">
+        <div class="nav">
+          <nav>
+            <ul>
+              <li>
+                <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+              </li>
+              <li>
+                <a href="#"> <i class="fa-solid fa-address-card"></i> About</a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa-solid fa-address-book"></i> Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="main">
+          <div class="content">
+            <main></main>
+          </div>
+          <div class="footer">
+            <footer></footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

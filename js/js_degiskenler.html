@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>JS Degiskenler</h1>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. A error voluptas
+      saepe nostrum dolor repudiandae provident sit ratione neque quos? Odit
+      temporibus maiores magni vel voluptas odio voluptate placeat! Saepe.
+    </p>
+    <script>
+      console.log("Hello World");
+      var sayi = 10;
+      console.log("degisken degeri " + sayi);
+      const musteri = {
+        ad: "alex",
+        soyad: "patates",
+      };
+      console.log("musteri" + musteri);
+      console.log("musteri adi " + musteri.ad);
+      console.log("musteri soyadi " + musteri.soyad);
+      console.log("musteri ", musteri);
+
+      //   let ad = prompt("adinizi giriniz");
+      //   console.log("adiniz " + ad);
+      /*
+       ad -> null ise = null
+       ad -> "" ise = isEmpty
+       ad -> " " ise = isBlank
+       ---- undefined ise = isUndefined
+      */
+      var musteri2 = {
+        soyad: "patates",
+      };
+      console.log(
+        "musteri adi: ",
+        musteri2.ad === undefined ? "musteri yok" : musteri2.ad
+      );
+    </script>
+  </body>
+</html>
