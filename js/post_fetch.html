@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>X</title>
+    <style>
+      .container {
+        width: 60%;
+        height: 90vh;
+        margin-left: 20%;
+        overflow: scroll;
+      }
+      .post {
+        margin: 5px;
+        padding: 5px;
+        display: flex;
+      }
+      .avatar {
+        flex: 1;
+      }
+      .imgAvatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+      .body {
+        flex: 11;
+        margin-left: 5px;
+        flex-direction: column;
+      }
+      .postTitle {
+        font-weight: bold;
+        font-size: 15px;
+      }
+      .postBody {
+        font-size: 13px;
+      }
+      .postIcons {
+        display: flex;
+      }
+      .p-icon {
+        display: flex;
+        flex: 1;
+        padding: 3px;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+      }
+      span {
+        margin-left: 5px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="root">
+      <div class="post">
+        <div class="avatar">
+          <img class="imgAvatar" src="https://picsum.photos/100/100" alt="" />
+        </div>
+        <div class="body">
+          <div>
+            <label class="postTitle">başlık </label>
+          </div>
+          <div>
+            <label class="postBody">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque,
+              natus est in enim culpa laudantium placeat suscipit, error
+              excepturi eius vel distinctio deserunt? Dolorum nisi tenetur
+              veniam voluptatum corporis eligendi!</label
+            >
+          </div>
+          <div class="postIcons">
+            <div class="p-icon">
+              <i class="fa-regular fa-comment"></i>
+              <span>56</span>
+            </div>
+            <div class="p-icon">
+              <i class="fa-solid fa-repeat"></i>
+            </div>
+            <div class="p-icon">
+              <i class="fa-solid fa-heart"></i>
+              <span>56</span>
+            </div>
+            <div class="p-icon">
+              <i class="fa-solid fa-chart-simple"></i>
+              <span>222</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const root = document.getElementById("root");
+      fetch("https://dummyjson.com/posts")
+        .then((res) => res.json())
+        .then((data) => {
+          root.innerHTML = ``;
+          data.posts.forEach((post) => {
+            root.innerHTML += `
+             <div class="post">
+        <div class="avatar">
+          <img class="imgAvatar" src="https://picsum.photos/100/100" alt="" />
+        </div>
+        <div class="body">
+          <div>
+            <label class="postTitle">${post.title} </label>
+          </div>
+          <div>
+            <label class="postBody">${post.body}</label>
+          </div>
+          <div class="postIcons">
+            <div class="p-icon">
+              <i class="fa-regular fa-comment"></i>
+              <span>${post.reactions.dislikes}</span>
+            </div>
+            <div class="p-icon">
+              <i class="fa-solid fa-repeat"></i>
+            </div>
+            <div class="p-icon">
+              <i class="fa-solid fa-heart"></i>
+              <span>${post.reactions.likes}</span>
+            </div>
+            <div class="p-icon">
+              <i class="fa-solid fa-chart-simple"></i>
+              <span>${post.views}</span>
+            </div>
+          </div>
+        </div>
+      </div>`;
+          });
+        });
+    </script>
+  </body>
+</html>
