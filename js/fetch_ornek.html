@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="user-list"></ul>
+    <script>
+      const ulUserList = document.getElementById("user-list");
+      fetch("https://randomuser.me/api/?results=5")
+        .then((res) => res.json())
+        .then((data) => {
+          for (let i = 0; i < data.results.length; i++) {
+            ulUserList.innerHTML += `
+          <li>
+            ${data.results[i].name.title} ${data.results[i].name.first}  ${data.results[i].name.last} 
+            </li>`;
+          }
+        });
+    </script>
+  </body>
+</html>

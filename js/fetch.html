@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            .then((res) => res.json()) -> gelen text datasını json'a cevirir
+            .then((data) => console.log(data)) -> json datasını yazdırır
+            .catch((err) => console.log(err)) -> hata oldugunda yazdırır
+            .finally(() => console.log("her istekten sonra ben çalışırım")) -> her istekten sonra yazdırır
+        */
+      let gelenKullaniciSayisi = 0;
+      fetch("https://randomuser.me/api/?results=5")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          gelenKullaniciSayisi = data.info.results;
+          console.log("gelen kullanıcı sayısı..." + gelenKullaniciSayisi);
+        })
+        .catch(() => console.log("bir hata oldu"))
+        .finally(() => console.log("her istekten sonra ben çalışırım"));
+    </script>
+  </body>
+</html>

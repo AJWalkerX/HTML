@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .buttons {
+        margin: 5px;
+        padding: 2px 5px;
+      }
+      #root {
+        height: 90vh;
+        border: 1px solid green;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="buttons">
+      <button onclick="elementEkle('text')" type="button">
+        input text ekle
+      </button>
+      <button onclick="elementEkle('img')" type="button">image ekle</button>
+      <button onclick="elementEkle('button')" type="button">button</button>
+    </div>
+    <div id="root"></div>
+    <script>
+      /*
+
+        */
+      function elementEkle(element) {
+        let newElement;
+        const root = document.getElementById("root");
+        switch (element) {
+          case "text":
+            newElement = document.createElement("input");
+            // newElement.type = "text";
+            newElement.setAttribute("type", "text");
+            // newElement.placeholder = "input text";
+            newElement.setAttribute("placeholder", "input text");
+            newElement.setAttribute(
+              "style",
+              "display:inline-block; width: 90%; color: blue; margin: 5px;"
+            );
+            break;
+          case "img":
+            newElement = document.createElement("img");
+            // newElement.src = "https://picsum.photos/200";
+            newElement.setAttribute("src", "https://picsum.photos/200");
+            newElement.setAttribute(
+              "style",
+              "border-radius: 50%; margin: 5px;"
+            );
+            break;
+          case "button":
+            newElement = document.createElement("button");
+            newElement.innerText = "Yeni button";
+            newElement.setAttribute(
+              "style",
+              "padding: 5px; margin: 5px; color: red;"
+            );
+            break;
+          default:
+            alert("geçersiz secim");
+            break;
+        }
+        root.appendChild(newElement);
+      }
+    </script>
+  </body>
+</html>
