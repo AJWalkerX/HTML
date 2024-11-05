@@ -15,12 +15,12 @@
       .container {
         display: flex;
         flex-direction: column;
-        border: 1px solid red;
         min-height: 90vh;
       }
       .product-container {
         display: flex;
-        border: 1px solid blue;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
         min-height: 38vh;
         margin: 10px;
       }
@@ -47,8 +47,17 @@
       }
       .product-details {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         margin: 10px;
+      }
+      .comment {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        padding: 20px;
+        background-color: whitesmoke;
       }
     </style>
   </head>
@@ -93,8 +102,19 @@
                  ${data.reviews
                    .map((review) => {
                      return `
+                    <div class="comment">
                     <label class="lblName"><b>${review.reviewerName}</b></label>
+                    <label class="lblRating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                ${review.rating}
+                        </label>
                     <label class="lblComment">${review.comment}</label>
+                    <label class="lblDate">${review.date}</label>
+                    </div>
                   `;
                    })
                    .join("")}
