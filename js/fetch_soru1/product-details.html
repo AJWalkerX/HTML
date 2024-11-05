@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>product-details</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid red;
+        min-height: 90vh;
+      }
+      .product-container {
+        display: flex;
+        border: 1px solid blue;
+        min-height: 38vh;
+        margin: 10px;
+      }
+      .img {
+        flex: 4;
+        margin: 10px;
+      }
+      img {
+        max-width: 400px;
+      }
+      .info {
+        flex: 8;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        text-align: justify;
+        align-items: stretch;
+        justify-content: center;
+        margin: 10px;
+      }
+      label {
+        margin-bottom: 10px;
+        font-size: larger;
+      }
+      .product-details {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <div class="container" id="container"></div>
+  <body>
+    <script>
+      let bodyDiv = document.getElementById("container");
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      fetch(`https://dummyjson.com/products/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          bodyDiv.innerHTML += `
+                <div class="product-container">
+                    <div class="img">
+                        <img src="${data.images[0]}" alt="" />
+                    </div>
+                    <div class="info">
+                        <label class="lblTitle"><h3>${data.title}</h3></label>
+                        <label class="lblDescription">${
+                          data.description
+                        }</label>
+                        <label class="lblCategory"><b>Catagory:</b> ${
+                          data.category
+                        }</label>
+                        <label class="lblPrice">${data.price} <b>$</b></label>
+                        <label class="lblStock"><b>Stock: </b> ${
+                          data.stock
+                        }</label>
+                        <label class="lblRating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                ${data.rating}
+                        </label>
+                    </div>
+                </div>
+            <div class="product-details">
+                 ${data.reviews
+                   .map((review) => {
+                     return `
+                    <label class="lblName"><b>${review.reviewerName}</b></label>
+                    <label class="lblComment">${review.comment}</label>
+                  `;
+                   })
+                   .join("")}
+            </div>
+            `;
+        });
+    </script>
+  </body>
+</html>
