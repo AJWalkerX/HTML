@@ -360,6 +360,7 @@
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
             Swal.fire("deleted!", "", "success");
+
             tableData.splice(index, 1);
             renderTable();
           } else if (result.isDenied) {
