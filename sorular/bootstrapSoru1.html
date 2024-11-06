@@ -190,77 +190,81 @@
         </tbody>
       </table>
       <!-- Modal -->
-      <div id="edit">
-        <div
-          class="modal fade"
-          id="editModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  Müşteriyi Güncelleme Formu
-                </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
+      <div
+        class="modal fade"
+        id="editModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Müşteriyi Güncelleme Formu
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label">Adınızı Giriniz</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editAdInput"
+                  placeholder="Adınız"
+                />
               </div>
-              <div class="modal-body">
-                <div class="mb-3">
-                  <label class="form-label">Adınızı Giriniz</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="adInput"
-                    placeholder="Adınız"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Soyadınızı Giriniz</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="soyadInput"
-                    placeholder="Soyadınız"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Adres Giriniz</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="adresInput"
-                    placeholder="Adresiniz"
-                  />
-                </div>
-                <label class="form-label">Yaşınız</label>
-                <select
-                  id="yasSelect"
-                  class="form-select"
-                  aria-label="Default select example"
-                >
-                  <option selected>Yaşınızı seçiniz</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                </select>
+              <div class="mb-3">
+                <label class="form-label">Soyadınızı Giriniz</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editSoyadInput"
+                  placeholder="Soyadınız"
+                />
               </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  İptal
-                </button>
-                <button type="button" class="btn btn-primary">Güncelle</button>
+              <div class="mb-3">
+                <label class="form-label">Adres Giriniz</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editAdresInput"
+                  placeholder="Adresiniz"
+                />
               </div>
+              <label class="form-label">Yaşınız</label>
+              <select
+                id="editYasSelect"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected>Yaşınızı seçiniz</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                İptal
+              </button>
+              <button
+                type="button"
+                onclick="saveEdit()"
+                class="btn btn-primary"
+              >
+                Güncelle
+              </button>
             </div>
           </div>
         </div>
@@ -281,13 +285,19 @@
         document.getElementById("yasSelect"),
       ];
 
+      const editInputs = [
+        document.getElementById("editAdInput"),
+        document.getElementById("editSoyadInput"),
+        document.getElementById("editAdresInput"),
+        document.getElementById("editYasSelect"),
+      ];
+
       let values;
       let id = 1;
       let editIndex = null;
       let tableData = [];
 
       const tableBody = document.getElementById("tableBody");
-      const editModal = document.getElementById("edit");
 
       function save() {
         values = inputs.map((input) => input.value);
@@ -329,80 +339,18 @@
       function editRow(index) {
         editIndex = index;
         const row = tableData[index];
-        editModal.innerHTML = `
-        <div
-        class="modal fade"
-        id="editModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              Müşteriyi Güncelleme Formu
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label class="form-label">Adınızı Giriniz</label>
-              <input
-                type="text"
-                class="form-control"
-                id="adInput"
-                placeholder="Adınız"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Soyadınızı Giriniz</label>
-              <input
-                type="text"
-                class="form-control"
-                id="soyadInput"
-                placeholder="Soyadınız"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Adres Giriniz</label>
-              <input
-                type="text"
-                class="form-control"
-                id="adresInput"
-                placeholder="Adresiniz"
-              />
-            </div>
-            <label class="form-label">Yaşınız</label>
-            <select
-              id="yasSelect"
-              class="form-select"
-              aria-label="Default select example"
-            >
-              <option selected>Yaşınızı seçiniz</option>
-              <option value="21">21</option>
-              <option value="22">22</option>
-              <option value="23">23</option>
-            </select>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              İptal
-            </button>
-            <button type="button" class="btn btn-primary">Güncelle</button>
-          </div>
-        </div>
-      </div>
-      </div>`;
+        for (let i = 0; i < editInputs.length; i++) {
+          editInputs[i].value = row[i];
+        }
+      }
+
+      function saveEdit() {
+        const newValues = editInputs.map((input) => input.value);
+        tableData[editIndex] = newValues;
+        renderTable();
+        const modalElement = document.getElementById("editModal");
+        const modalInstance = bootstrap.Modal.getInstance(modalElement);
+        modalInstance.hide();
       }
     </script>
   </body>
