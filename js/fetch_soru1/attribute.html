@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Tags Attribute</title>
+    <style>
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        background-color: bisque;
+        min-height: 100px;
+      }
+      .form-element {
+        margin: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <label id="message">Alex Hocanın Yoga dersleri</label>
+    </div>
+    <div class="form-element">
+      <button onclick="renkDegistir()">degistir</button>
+    </div>
+    <script>
+      const lblMessage = document.getElementById("message");
+      function renkDegistir() {
+        if (lblMessage.style.color !== "red") {
+          lblMessage.style.color = "red";
+        } else {
+          lblMessage.style.color = "blue";
+        }
+      }
+      //   setInterval(renkDegistir, 500);
+      setInterval(() => {
+        renkDegistir();
+      }, 500);
+      setTimeout(() => {
+        Swal.fire("SweetAlert2 is working!");
+      }, 3000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

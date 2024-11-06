@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function kullanımı</title>
+  </head>
+  <body>
+    <button onclick="mesajVer()">Butona Tıklamalısın</button>
+    <!-- <input onchange="buyukHarf()" type="text" id="ifade" /> -->
+    <!-- <input onkeydown="buyukHarf()" type="text" id="ifade" /> -->
+    <input onkeypress="buyukHarf()" type="text" id="ifade" />
+    <br /><br />
+    <div>
+      <div>
+        <label for="sifre">sifre</label> <br />
+        <input type="text" id="sifre" />
+      </div>
+      <br />
+      <div>
+        <label for="reSifre">reSifre</label> <br />
+        <input onkeyup="sifreKontrol()" type="text" id="reSifre" />
+      </div>
+      <label style="color: red" id="uyari"></label>
+    </div>
+
+    <script>
+      function topla(s1, s2) {
+        let t = s1 + s2;
+        return t;
+      }
+      let sonuc = topla(10, 20);
+      console.log(sonuc);
+
+      function mesajVer() {
+        alert("Merhaba");
+      }
+      const ifade = document.getElementById("ifade");
+      function buyukHarf() {
+        let buyukIfade = ifade.value.toUpperCase();
+        console.log(buyukIfade);
+      }
+      const sifre = document.getElementById("sifre");
+      const reSifre = document.getElementById("reSifre");
+      const uyari = document.getElementById("uyari");
+      function sifreKontrol() {
+        if (sifre.value !== reSifre.value) {
+          uyari.innerHTML = "sifreler aynı olmalıdır.";
+        } else {
+          uyari.innerHTML = "";
+        }
+      }
+    </script>
+  </body>
+</html>
