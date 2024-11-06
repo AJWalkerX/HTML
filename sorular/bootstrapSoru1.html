@@ -12,7 +12,7 @@
     />
     <style>
       .container-fluid {
-        min-height: 30vh;
+        min-height: auto;
         border: 1px solid gray;
         border-radius: 10px;
         margin-bottom: 10px;
@@ -64,7 +64,7 @@
             class="form-select"
             aria-label="Default select example"
           >
-            <option selected>Yaşınızı seçiniz</option>
+            <option selected value="">Yaşınızı seçiniz</option>
             <option value="21">21</option>
             <option value="22">22</option>
             <option value="23">23</option>
@@ -244,7 +244,7 @@
                 class="form-select"
                 aria-label="Default select example"
               >
-                <option selected>Yaşınızı seçiniz</option>
+                <option selected value="">Yaşınızı seçiniz</option>
                 <option value="21">21</option>
                 <option value="22">22</option>
                 <option value="23">23</option>
@@ -276,7 +276,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       const inputs = [
         document.getElementById("adInput"),
@@ -301,8 +301,26 @@
 
       function save() {
         values = inputs.map((input) => input.value);
+
+        if (values.some((value) => value.trim() === "" || value === null)) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Tüm Alanlar dolu olmalıdır!",
+          });
+          return;
+        }
+
         tableData.push(values);
         renderTable();
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "user saved successfully",
+          showConfirmButton: false,
+          timer: 1700,
+        });
       }
 
       function renderTable() {
@@ -333,8 +351,21 @@
         });
       }
       function deleteRow(index) {
-        tableData.splice(index, 1);
-        renderTable();
+        Swal.fire({
+          title: "Do you want to delete it?",
+          showDenyButton: false,
+          showCancelButton: true,
+          confirmButtonText: "delete",
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            Swal.fire("deleted!", "", "success");
+            tableData.splice(index, 1);
+            renderTable();
+          } else if (result.isDenied) {
+            Swal.fire("user are not deleted!", "", "info");
+          }
+        });
       }
       function editRow(index) {
         editIndex = index;
@@ -347,10 +378,29 @@
       function saveEdit() {
         const newValues = editInputs.map((input) => input.value);
         tableData[editIndex] = newValues;
+        if (
+          newValues.some(
+            (newValues) => newValues.trim() === "" || newValues === null
+          )
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Tüm Alanlar dolu olmalıdır!",
+          });
+          return;
+        }
         renderTable();
         const modalElement = document.getElementById("editModal");
         const modalInstance = bootstrap.Modal.getInstance(modalElement);
         modalInstance.hide();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "user updated successfully",
+          showConfirmButton: false,
+          timer: 1700,
+        });
       }
     </script>
   </body>
